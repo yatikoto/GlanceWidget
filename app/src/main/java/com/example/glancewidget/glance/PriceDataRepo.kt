@@ -14,7 +14,8 @@ object PriceDataRepo {
 
     fun update() {
         previousPrice = currentPrice.value
-        _currentPrice.value = Random.nextInt(20, 35) + Random.nextFloat()
-        change = ((_currentPrice.value - previousPrice) / previousPrice * 100).toInt()
+        val newPrice = Random.nextInt(20, 35) + Random.nextFloat()
+        change = ((newPrice - previousPrice) / previousPrice * 100).toInt()
+        _currentPrice.value = newPrice
     }
 }
